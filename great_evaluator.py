@@ -7,7 +7,7 @@ with open("data.csv","r") as file:
     reader = csv.reader(file)
 
     # init a dictionary to keep the great for each assignment
-    grade = {}
+    grades = {}
 
     # iterating over eash row in the csv file
     for row in reader:
@@ -18,3 +18,9 @@ with open("data.csv","r") as file:
         # printing data and file
         print(student_id, assignment_name, grade)
         
+        # if this assignment have't been added to the grade dictionary, then add it into.
+        if assignment_name not in grade:
+            grades[assignment_name] = []
+
+        # add grade to the list of grade for this assignment
+        grades[assignment_name].append(grade) #we may need (int(grade))
